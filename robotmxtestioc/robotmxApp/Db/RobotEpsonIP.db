@@ -3,7 +3,7 @@
 # WindowsStatus status
 # 0 = RC+ not up, 1 = RC+ is up
 
-record(bi, "$(P)$(R):WIN_STATUS")
+record(bi, "$(P):WIN_STATUS")
 {
     field(DESC, "Win sts")
     field(SCAN, "Passive")
@@ -16,7 +16,7 @@ record(bi, "$(P)$(R):WIN_STATUS")
 # AtHome status
 # 0 = Not at home, 1 = At home
 
-record(bi, "$(P)$(R):ATHOME_STATUS")
+record(bi, "$(P):ATHOME_STATUS")
 {
     field(DESC, "At Home sts")
     field(SCAN, "Passive")
@@ -28,7 +28,7 @@ record(bi, "$(P)$(R):ATHOME_STATUS")
 
 # Set current position to home position
 
-record(bo, "$(P)$(R):SETHOME_CMD")
+record(bo, "$(P):SETHOME_CMD")
 {
     field(DESC, "Home cmd")
     field(SCAN, "Passive")
@@ -41,7 +41,7 @@ record(bo, "$(P)$(R):SETHOME_CMD")
 # Done status for foreground execution path
 # 0 = Busy, 1 = Done
 
-record(bi, "$(P)$(R):FDONE_STATUS")
+record(bi, "$(P):FDONE_STATUS")
 {
     field(DESC, "fore path done")
     field(SCAN, "Passive")
@@ -55,7 +55,7 @@ record(bi, "$(P)$(R):FDONE_STATUS")
 # Error status for foreground execution path
 # 0 = OK, 1 = Error
 
-record(bi, "$(P)$(R):FERR_STATUS")
+record(bi, "$(P):FERR_STATUS")
 {
     field(DESC, "fore error stat")
     field(SCAN, "Passive")
@@ -71,7 +71,7 @@ record(bi, "$(P)$(R):FERR_STATUS")
 # This is done for connection management on L0.
 # Something must enter the asynQueue on L0 periodically for autoConnect L0 to work
 
-record(bi, "$(P)$(R):SYSERR_STATUS")
+record(bi, "$(P):SYSERR_STATUS")
 {
     field(DESC, "RC620 error stat")
     field(SCAN, ".5 second")
@@ -84,7 +84,7 @@ record(bi, "$(P)$(R):SYSERR_STATUS")
 # Error status for background execution path
 # 0 = OK, 1 = Error
 
-record(bi, "$(P)$(R):BERR_STATUS")
+record(bi, "$(P):BERR_STATUS")
 {
     field(DESC, "backgrd error stat")
     field(SCAN, "Passive")
@@ -97,7 +97,7 @@ record(bi, "$(P)$(R):BERR_STATUS")
 # Error status for StateChangeWatcher background task
 # 0 = OK, 1 = Error
 
-record(bi, "$(P)$(R):SERR_STATUS")
+record(bi, "$(P):SERR_STATUS")
 {
     field(DESC, "state error")
     field(SCAN, "Passive")
@@ -110,7 +110,7 @@ record(bi, "$(P)$(R):SERR_STATUS")
 # InPos status
 # 0 = Not in position, 1 = InPos
 
-record(bi, "$(P)$(R):INPOS_STATUS")
+record(bi, "$(P):INPOS_STATUS")
 {
     field(DESC, "InPos mon")
     field(SCAN, "Passive")
@@ -123,7 +123,7 @@ record(bi, "$(P)$(R):INPOS_STATUS")
 # Status of motor power
 # 0 = Off, 1 = On
 
-record(bi, "$(P)$(R):MOTOR_STATUS")
+record(bi, "$(P):MOTOR_STATUS")
 {
     field(DESC, "Motor power mon")
     field(SCAN, "Passive")
@@ -136,7 +136,7 @@ record(bi, "$(P)$(R):MOTOR_STATUS")
 # Manual control of motor power
 # 0 = Off, 1 = On
 
-record(bo, "$(P)$(R):MOTOR_CMD")
+record(bo, "$(P):MOTOR_CMD")
 {
     field(DESC, "Motor power set")
     field(SCAN, "Passive")
@@ -146,21 +146,13 @@ record(bo, "$(P)$(R):MOTOR_CMD")
 
 ###########################################################################
 
-record(ao, "$(P)$(R):LIMZ_CMD")
+record(ao, "$(P):LIMZ_CMD")
 {
 }
 
 ###########################################################################
 
-record(ai, "$(P)$(R):LIMZ_MON")
-{
-    field(SCAN, "Passive")
-    field(PREC, "3")
-}
-
-###########################################################################
-
-record(ai, "$(P)$(R):FORCE1_MON")
+record(ai, "$(P):LIMZ_MON")
 {
     field(SCAN, "Passive")
     field(PREC, "3")
@@ -168,7 +160,7 @@ record(ai, "$(P)$(R):FORCE1_MON")
 
 ###########################################################################
 
-record(ai, "$(P)$(R):FORCE2_MON")
+record(ai, "$(P):FORCE1_MON")
 {
     field(SCAN, "Passive")
     field(PREC, "3")
@@ -176,7 +168,7 @@ record(ai, "$(P)$(R):FORCE2_MON")
 
 ###########################################################################
 
-record(ai, "$(P)$(R):FORCE3_MON")
+record(ai, "$(P):FORCE2_MON")
 {
     field(SCAN, "Passive")
     field(PREC, "3")
@@ -184,7 +176,7 @@ record(ai, "$(P)$(R):FORCE3_MON")
 
 ###########################################################################
 
-record(ai, "$(P)$(R):FORCE4_MON")
+record(ai, "$(P):FORCE3_MON")
 {
     field(SCAN, "Passive")
     field(PREC, "3")
@@ -192,7 +184,7 @@ record(ai, "$(P)$(R):FORCE4_MON")
 
 ###########################################################################
 
-record(ai, "$(P)$(R):FORCE5_MON")
+record(ai, "$(P):FORCE4_MON")
 {
     field(SCAN, "Passive")
     field(PREC, "3")
@@ -200,7 +192,7 @@ record(ai, "$(P)$(R):FORCE5_MON")
 
 ###########################################################################
 
-record(ai, "$(P)$(R):FORCE6_MON")
+record(ai, "$(P):FORCE5_MON")
 {
     field(SCAN, "Passive")
     field(PREC, "3")
@@ -208,13 +200,21 @@ record(ai, "$(P)$(R):FORCE6_MON")
 
 ###########################################################################
 
-record(ao, "$(P)$(R):TOOL_CMD")
+record(ai, "$(P):FORCE6_MON")
+{
+    field(SCAN, "Passive")
+    field(PREC, "3")
+}
+
+###########################################################################
+
+record(ao, "$(P):TOOL_CMD")
 {
 }
 
 ###########################################################################
 
-record(ai, "$(P)$(R):TOOL_MON")
+record(ai, "$(P):TOOL_MON")
 {
     field(SCAN, "Passive")
 }
@@ -223,7 +223,7 @@ record(ai, "$(P)$(R):TOOL_MON")
 
 # Error string from StateChangeWatcher background processing path on RC620
 
-record (waveform, "$(P)$(R):STATEEMSG_MON")
+record (waveform, "$(P):STATEEMSG_MON")
 {
   field(NELM, "256")
   field(FTVL, "CHAR")
@@ -234,7 +234,7 @@ record (waveform, "$(P)$(R):STATEEMSG_MON")
 
 # Error string from background processing path on RC620
 
-record (waveform, "$(P)$(R):BACKEMSG_MON")
+record (waveform, "$(P):BACKEMSG_MON")
 {
   field(NELM, "256")
   field(FTVL, "CHAR")
@@ -245,7 +245,7 @@ record (waveform, "$(P)$(R):BACKEMSG_MON")
 
 # Error string from foreground processing path on RC620
 
-record (waveform, "$(P)$(R):FOREEMSG_MON")
+record (waveform, "$(P):FOREEMSG_MON")
 {
   field(NELM, "256")
   field(FTVL, "CHAR")
@@ -256,7 +256,7 @@ record (waveform, "$(P)$(R):FOREEMSG_MON")
 
 # Task mesg string from foreground processing path on RC620
 
-record (waveform, "$(P)$(R):TASKMSG_MON")
+record (waveform, "$(P):TASKMSG_MON")
 {
   field(NELM, "256")
   field(FTVL, "CHAR")
@@ -267,7 +267,7 @@ record (waveform, "$(P)$(R):TASKMSG_MON")
 
 # Task progress string from foreground processing path on RC620
 
-record (waveform, "$(P)$(R):TASKPROG_MON")
+record (waveform, "$(P):TASKPROG_MON")
 {
   field(NELM, "256")
   field(FTVL, "CHAR")
@@ -279,7 +279,7 @@ record (waveform, "$(P)$(R):TASKPROG_MON")
 # A client readable message sent as task progresses
 # Meant for dynamic updating
 
-record (waveform, "$(P)$(R):CLIENTUPDATE_MON")
+record (waveform, "$(P):CLIENTUPDATE_MON")
 {
   field(NELM, "256")
   field(FTVL, "CHAR")
@@ -290,7 +290,7 @@ record (waveform, "$(P)$(R):CLIENTUPDATE_MON")
 
 # A client readable message sent in response to client query
 
-record (waveform, "$(P)$(R):CLIENTRESP_MON")
+record (waveform, "$(P):CLIENTRESP_MON")
 {
   field(NELM, "256")
   field(FTVL, "CHAR")
@@ -301,7 +301,7 @@ record (waveform, "$(P)$(R):CLIENTRESP_MON")
 
 # System Error and warning monitor
 
-record(ai, "$(P)$(R):SYSERR_MON")
+record(ai, "$(P):SYSERR_MON")
 {
     field(DESC, "SysErr status")
     field(SCAN, "Passive")
@@ -313,7 +313,7 @@ record(ai, "$(P)$(R):SYSERR_MON")
 
 # Error string from RC620
 
-record (waveform, "$(P)$(R):ERRMSG_MON")
+record (waveform, "$(P):ERRMSG_MON")
 {
   field(NELM, "256")
   field(FTVL, "CHAR")
@@ -324,7 +324,7 @@ record (waveform, "$(P)$(R):ERRMSG_MON")
 
 # Speed query
 
-record(ai, "$(P)$(R):SPEED_MON")
+record(ai, "$(P):SPEED_MON")
 {
     field(DESC, "Speed monitor")
     field(SCAN, "Passive")
@@ -334,7 +334,7 @@ record(ai, "$(P)$(R):SPEED_MON")
 
 # Speed cmd
 
-record(ao, "$(P)$(R):SPEED_CMD")
+record(ao, "$(P):SPEED_CMD")
 {
     field(DESC, "Speed cmd")
     field(HOPR, "100")
@@ -347,7 +347,7 @@ record(ao, "$(P)$(R):SPEED_CMD")
 
 # SpeedR query
 
-record(ai, "$(P)$(R):SPEEDR_MON")
+record(ai, "$(P):SPEEDR_MON")
 {
     field(DESC, "SpeedR monitor")
     field(SCAN, "Passive")
@@ -357,7 +357,7 @@ record(ai, "$(P)$(R):SPEEDR_MON")
 
 # SpeedR cmd
 
-record(ao, "$(P)$(R):SPEEDR_CMD")
+record(ao, "$(P):SPEEDR_CMD")
 {
     field(DESC, "SpeedR cmd")
 }
@@ -367,7 +367,7 @@ record(ao, "$(P)$(R):SPEEDR_CMD")
 
 # SpeedS query
 
-record(ai, "$(P)$(R):SPEEDS_MON")
+record(ai, "$(P):SPEEDS_MON")
 {
     field(DESC, "SpeedS monitor")
     field(SCAN, "Passive")
@@ -377,7 +377,7 @@ record(ai, "$(P)$(R):SPEEDS_MON")
 
 # SpeedS cmd
 
-record(ao, "$(P)$(R):SPEEDS_CMD")
+record(ao, "$(P):SPEEDS_CMD")
 {
     field(DESC, "SpeedS cmd")
 }
@@ -386,7 +386,7 @@ record(ao, "$(P)$(R):SPEEDS_CMD")
 
 # SafetyOn monitor
 
-record(bi, "$(P)$(R):SAFETYON_STATUS")
+record(bi, "$(P):SAFETYON_STATUS")
 {
     field(DESC, "SafetyOn")
     field(SCAN, "Passive")
@@ -400,7 +400,7 @@ record(bi, "$(P)$(R):SAFETYON_STATUS")
 
 # EStopOn monitor
 
-record(bi, "$(P)$(R):ESTOPON_STATUS")
+record(bi, "$(P):ESTOPON_STATUS")
 {
     field(DESC, "EStopOn")
     field(SCAN, "Passive")
@@ -414,7 +414,7 @@ record(bi, "$(P)$(R):ESTOPON_STATUS")
 
 # PauseOn monitor
 
-record(bi, "$(P)$(R):PAUSEON_STATUS")
+record(bi, "$(P):PAUSEON_STATUS")
 {
     field(DESC, "PauseOn")
     field(SCAN, "Passive")
@@ -429,7 +429,7 @@ record(bi, "$(P)$(R):PAUSEON_STATUS")
 # On cmd
 # Sets digital output bit on RC 620 controller to 1
 
-record(mbboDirect, "$(P)$(R):ON_CMD")
+record(mbboDirect, "$(P):ON_CMD")
 {
     field(DESC, "On")
 }
@@ -439,7 +439,7 @@ record(mbboDirect, "$(P)$(R):ON_CMD")
 # Off cmd
 # Clears digital output bit on RC 620 controller to 0
 
-record(mbboDirect, "$(P)$(R):OFF_CMD")
+record(mbboDirect, "$(P):OFF_CMD")
 {
     field(DESC, "Off")
 }
@@ -448,249 +448,249 @@ record(mbboDirect, "$(P)$(R):OFF_CMD")
 
 # JOGJ1POS
 
-record(bo, "$(P)$(R):JOGJ1POS_CMD")
+record(bo, "$(P):JOGJ1POS_CMD")
 {
     field(DESC, "JogJ1 +ve")
     field(ZNAM, "Stop")
     field(ONAM, "JogJ1+")
-    field(FLNK, "$(P)$(R):JOGJ1_CALC")
+    field(FLNK, "$(P):JOGJ1_CALC")
 }
 
 ###########################################################################
 
 # JOGJ1NEG
 
-record(bo, "$(P)$(R):JOGJ1NEG_CMD")
+record(bo, "$(P):JOGJ1NEG_CMD")
 {
     field(DESC, "JogJ1 -ve")
     field(ZNAM, "Stop")
     field(ONAM, "JogJ1-")
-    field(FLNK, "$(P)$(R):JOGJ1_CALC")
+    field(FLNK, "$(P):JOGJ1_CALC")
 }
 
 ###########################################################################
 
 # JOGJ1_CALC
 
-record(calc, "$(P)$(R):JOGJ1_CALC")
+record(calc, "$(P):JOGJ1_CALC")
 {
     field(DESC, "JogJ1 calc")
-    field(INPA, "$(P)$(R):JOGJ1POS_CMD")
-    field(INPB, "$(P)$(R):JOGJ1NEG_CMD")
+    field(INPA, "$(P):JOGJ1POS_CMD")
+    field(INPB, "$(P):JOGJ1NEG_CMD")
 
 #Guard against both jog buttons being pressed
     field(CALC,  "((A)|(B<<1))=3?0:((A)|(B<<1))")
-    field(FLNK, "$(P)$(R):JOG_CALCOUT")
+    field(FLNK, "$(P):JOG_CALCOUT")
 }
 
 ###########################################################################
 
 # JOGJ2POS
 
-record(bo, "$(P)$(R):JOGJ2POS_CMD")
+record(bo, "$(P):JOGJ2POS_CMD")
 {
     field(DESC, "JogJ2 +ve")
     field(ZNAM, "Stop")
     field(ONAM, "JogJ2+")
-    field(FLNK, "$(P)$(R):JOGJ2_CALC")
+    field(FLNK, "$(P):JOGJ2_CALC")
 }
 
 ###########################################################################
 
 # JOGJ2NEG
 
-record(bo, "$(P)$(R):JOGJ2NEG_CMD")
+record(bo, "$(P):JOGJ2NEG_CMD")
 {
     field(DESC, "JogJ2 -ve")
     field(ZNAM, "Stop")
     field(ONAM, "JogJ2-")
-    field(FLNK, "$(P)$(R):JOGJ2_CALC")
+    field(FLNK, "$(P):JOGJ2_CALC")
 }
 
 ###########################################################################
 
 # JOGJ2_CALC
 
-record(calc, "$(P)$(R):JOGJ2_CALC")
+record(calc, "$(P):JOGJ2_CALC")
 {
     field(DESC, "JogJ2 calc")
-    field(INPA, "$(P)$(R):JOGJ2POS_CMD")
-    field(INPB, "$(P)$(R):JOGJ2NEG_CMD")
+    field(INPA, "$(P):JOGJ2POS_CMD")
+    field(INPB, "$(P):JOGJ2NEG_CMD")
 
 #Guard against both jog buttons being pressed
     field(CALC,  "((A<<2)|(B<<3))=12?0:((A<<2)|(B<<3))")
-    field(FLNK, "$(P)$(R):JOG_CALCOUT")
+    field(FLNK, "$(P):JOG_CALCOUT")
 }
 
 ###########################################################################
 
 # JOGJ3POS
 
-record(bo, "$(P)$(R):JOGJ3POS_CMD")
+record(bo, "$(P):JOGJ3POS_CMD")
 {
     field(DESC, "JogJ3 +ve")
     field(ZNAM, "Stop")
     field(ONAM, "JogJ3+")
-    field(FLNK, "$(P)$(R):JOGJ3_CALC")
+    field(FLNK, "$(P):JOGJ3_CALC")
 }
 
 ###########################################################################
 
 # JOGJ3NEG
 
-record(bo, "$(P)$(R):JOGJ3NEG_CMD")
+record(bo, "$(P):JOGJ3NEG_CMD")
 {
     field(DESC, "JogJ3 -ve")
     field(ZNAM, "Stop")
     field(ONAM, "JogJ3-")
-    field(FLNK, "$(P)$(R):JOGJ3_CALC")
+    field(FLNK, "$(P):JOGJ3_CALC")
 }
 
 ###########################################################################
 
 # JOGJ3_CALC
 
-record(calc, "$(P)$(R):JOGJ3_CALC")
+record(calc, "$(P):JOGJ3_CALC")
 {
     field(DESC, "JogJ3 calc")
-    field(INPA, "$(P)$(R):JOGJ3POS_CMD")
-    field(INPB, "$(P)$(R):JOGJ3NEG_CMD")
+    field(INPA, "$(P):JOGJ3POS_CMD")
+    field(INPB, "$(P):JOGJ3NEG_CMD")
 
 #Guard against both jog buttons being pressed
     field(CALC,  "((A<<4)|(B<<5))=48?0:((A<<4)|(B<<5))")
-    field(FLNK, "$(P)$(R):JOG_CALCOUT")
+    field(FLNK, "$(P):JOG_CALCOUT")
 }
 
 ###########################################################################
 
 # JOGJ4POS
 
-record(bo, "$(P)$(R):JOGJ4POS_CMD")
+record(bo, "$(P):JOGJ4POS_CMD")
 {
     field(DESC, "JogJ4 +ve")
     field(ZNAM, "Stop")
     field(ONAM, "JogJ4+")
-    field(FLNK, "$(P)$(R):JOGJ4_CALC")
+    field(FLNK, "$(P):JOGJ4_CALC")
 }
 
 ###########################################################################
 
 # JOGJ4NEG
 
-record(bo, "$(P)$(R):JOGJ4NEG_CMD")
+record(bo, "$(P):JOGJ4NEG_CMD")
 {
     field(DESC, "JogJ4 -ve")
     field(ZNAM, "Stop")
     field(ONAM, "JogJ4-")
-    field(FLNK, "$(P)$(R):JOGJ4_CALC")
+    field(FLNK, "$(P):JOGJ4_CALC")
 }
 
 ###########################################################################
 
 # JOGJ4_CALC
 
-record(calc, "$(P)$(R):JOGJ4_CALC")
+record(calc, "$(P):JOGJ4_CALC")
 {
     field(DESC, "JogJ4 calc")
-    field(INPA, "$(P)$(R):JOGJ4POS_CMD")
-    field(INPB, "$(P)$(R):JOGJ4NEG_CMD")
+    field(INPA, "$(P):JOGJ4POS_CMD")
+    field(INPB, "$(P):JOGJ4NEG_CMD")
 
 #Guard against both jog buttons being pressed
     field(CALC,  "((A<<6)|(B<<7))=192?0:((A<<6)|(B<<7))")
-    field(FLNK, "$(P)$(R):JOG_CALCOUT")
+    field(FLNK, "$(P):JOG_CALCOUT")
 }
 
 ###########################################################################
 
 # JOGJ5POS
 
-record(bo, "$(P)$(R):JOGJ5POS_CMD")
+record(bo, "$(P):JOGJ5POS_CMD")
 {
     field(DESC, "JogJ5 +ve")
     field(ZNAM, "Stop")
     field(ONAM, "JogJ5+")
-    field(FLNK, "$(P)$(R):JOGJ5_CALC")
+    field(FLNK, "$(P):JOGJ5_CALC")
 }
 
 ###########################################################################
 
 # JOGJ5NEG
 
-record(bo, "$(P)$(R):JOGJ5NEG_CMD")
+record(bo, "$(P):JOGJ5NEG_CMD")
 {
     field(DESC, "JogJ5 -ve")
     field(ZNAM, "Stop")
     field(ONAM, "JogJ5-")
-    field(FLNK, "$(P)$(R):JOGJ5_CALC")
+    field(FLNK, "$(P):JOGJ5_CALC")
 }
 
 ###########################################################################
 
 # JOGJ5_CALC
 
-record(calc, "$(P)$(R):JOGJ5_CALC")
+record(calc, "$(P):JOGJ5_CALC")
 {
     field(DESC, "JogJ5 calc")
-    field(INPA, "$(P)$(R):JOGJ5POS_CMD")
-    field(INPB, "$(P)$(R):JOGJ5NEG_CMD")
+    field(INPA, "$(P):JOGJ5POS_CMD")
+    field(INPB, "$(P):JOGJ5NEG_CMD")
 
 #Guard against both jog buttons being pressed
     field(CALC,  "((A<<8)|(B<<9))=768?0:((A<<8)|(B<<9))")
-    field(FLNK, "$(P)$(R):JOG_CALCOUT")
+    field(FLNK, "$(P):JOG_CALCOUT")
 }
 
 ###########################################################################
 
 # JOGJ6POS
 
-record(bo, "$(P)$(R):JOGJ6POS_CMD")
+record(bo, "$(P):JOGJ6POS_CMD")
 {
     field(DESC, "JogJ6 +ve")
     field(ZNAM, "Stop")
     field(ONAM, "JogJ6+")
-    field(FLNK, "$(P)$(R):JOGJ6_CALC")
+    field(FLNK, "$(P):JOGJ6_CALC")
 }
 
 ###########################################################################
 
 # JOGJ6NEG
 
-record(bo, "$(P)$(R):JOGJ6NEG_CMD")
+record(bo, "$(P):JOGJ6NEG_CMD")
 {
     field(DESC, "JogJ6 -ve")
     field(ZNAM, "Stop")
     field(ONAM, "JogJ6-")
-    field(FLNK, "$(P)$(R):JOGJ6_CALC")
+    field(FLNK, "$(P):JOGJ6_CALC")
 }
 
 ###########################################################################
 
 # JOGJ6_CALC
 
-record(calc, "$(P)$(R):JOGJ6_CALC")
+record(calc, "$(P):JOGJ6_CALC")
 {
     field(DESC, "JogJ6 calc")
-    field(INPA, "$(P)$(R):JOGJ6POS_CMD")
-    field(INPB, "$(P)$(R):JOGJ6NEG_CMD")
+    field(INPA, "$(P):JOGJ6POS_CMD")
+    field(INPB, "$(P):JOGJ6NEG_CMD")
 
 #Guard against both jog buttons being pressed
     field(CALC,  "((A<<10)|(B<<11))=3072?0:((A<<10)|(B<<11))")
-    field(FLNK, "$(P)$(R):JOG_CALCOUT")
+    field(FLNK, "$(P):JOG_CALCOUT")
 }
 
 ###########################################################################
 
 # JOGCALCOUT
 
-record(calcout, "$(P)$(R):JOG_CALCOUT")
+record(calcout, "$(P):JOG_CALCOUT")
 {
     field(DESC, "Jog")
-    field(INPA, "$(P)$(R):JOGJ1_CALC")
-    field(INPB, "$(P)$(R):JOGJ2_CALC")
-    field(INPC, "$(P)$(R):JOGJ3_CALC")
-    field(INPD, "$(P)$(R):JOGJ4_CALC")
-    field(INPE, "$(P)$(R):JOGJ5_CALC")
-    field(INPF, "$(P)$(R):JOGJ6_CALC")
+    field(INPA, "$(P):JOGJ1_CALC")
+    field(INPB, "$(P):JOGJ2_CALC")
+    field(INPC, "$(P):JOGJ3_CALC")
+    field(INPD, "$(P):JOGJ4_CALC")
+    field(INPE, "$(P):JOGJ5_CALC")
+    field(INPF, "$(P):JOGJ6_CALC")
 
     field(CALC, "A|B|C|D|E|F")
 }
@@ -699,7 +699,7 @@ record(calcout, "$(P)$(R):JOG_CALCOUT")
 # MemOutW
 # Sets 16bit memory port
 
-record(mbboDirect, "$(P)$(R):MEMOUTW_CMD")
+record(mbboDirect, "$(P):MEMOUTW_CMD")
 {
     field(DESC, "memoutW statement")
 }
@@ -709,7 +709,7 @@ record(mbboDirect, "$(P)$(R):MEMOUTW_CMD")
 # OutW statement
 # Sets digital output port on RC 620 controller to value
 
-record(mbboDirect, "$(P)$(R):OUTW_CMD")
+record(mbboDirect, "$(P):OUTW_CMD")
 {
     field(DESC, "OutW statement")
 }
@@ -719,7 +719,7 @@ record(mbboDirect, "$(P)$(R):OUTW_CMD")
 # OutW cmd
 # Gets digital output port value from RC 620 controller
 
-record(mbbiDirect, "$(P)$(R):OUTW_STATUS")
+record(mbbiDirect, "$(P):OUTW_STATUS")
 {
     field(DESC, "OutW cmd")
     field(SCAN, "Passive")
@@ -730,7 +730,7 @@ record(mbbiDirect, "$(P)$(R):OUTW_STATUS")
 # InW cmd
 # Gets digital input port value from RC 620 controller
 
-record(mbbiDirect, "$(P)$(R):INW_STATUS")
+record(mbbiDirect, "$(P):INW_STATUS")
 {
     field(DESC, "InW")
     field(SCAN, "Passive")
@@ -742,7 +742,7 @@ record(mbbiDirect, "$(P)$(R):INW_STATUS")
 
 # CX position monitor
 
-record(ai, "$(P)$(R):CX_MON")
+record(ai, "$(P):CX_MON")
 {
     field(DESC, "CX Mon")
     field(SCAN, "Passive")
@@ -753,7 +753,7 @@ record(ai, "$(P)$(R):CX_MON")
 
 # CY position monitor
 
-record(ai, "$(P)$(R):CY_MON")
+record(ai, "$(P):CY_MON")
 {
     field(DESC, "CY Mon")
     field(SCAN, "Passive")
@@ -764,7 +764,7 @@ record(ai, "$(P)$(R):CY_MON")
 
 # CZ position monitor
 
-record(ai, "$(P)$(R):CZ_MON")
+record(ai, "$(P):CZ_MON")
 {
     field(DESC, "CZ Mon")
     field(SCAN, "Passive")
@@ -775,7 +775,7 @@ record(ai, "$(P)$(R):CZ_MON")
 
 # CU position monitor
 
-record(ai, "$(P)$(R):CU_MON")
+record(ai, "$(P):CU_MON")
 {
     field(DESC, "CU Mon")
     field(SCAN, "Passive")
@@ -786,7 +786,7 @@ record(ai, "$(P)$(R):CU_MON")
 
 # CV position monitor
 
-record(ai, "$(P)$(R):CV_MON")
+record(ai, "$(P):CV_MON")
 {
     field(DESC, "CV Mon")
     field(SCAN, "Passive")
@@ -797,7 +797,7 @@ record(ai, "$(P)$(R):CV_MON")
 
 # CW position monitor
 
-record(ai, "$(P)$(R):CW_MON")
+record(ai, "$(P):CW_MON")
 {
     field(DESC, "CW Mon")
     field(SCAN, "Passive")
@@ -808,7 +808,7 @@ record(ai, "$(P)$(R):CW_MON")
 
 # Joint 1 encoder position monitor
 
-record(ai, "$(P)$(R):PLSJ1_MON")
+record(ai, "$(P):PLSJ1_MON")
 {
     field(DESC, "PLSJ1 Mon")
     field(SCAN, "Passive")
@@ -818,7 +818,7 @@ record(ai, "$(P)$(R):PLSJ1_MON")
 
 # Joint 2 encoder position monitor
 
-record(ai, "$(P)$(R):PLSJ2_MON")
+record(ai, "$(P):PLSJ2_MON")
 {
     field(DESC, "PLSJ2 Mon")
     field(SCAN, "Passive")
@@ -828,7 +828,7 @@ record(ai, "$(P)$(R):PLSJ2_MON")
 
 # Joint 3 encoder position monitor
 
-record(ai, "$(P)$(R):PLSJ3_MON")
+record(ai, "$(P):PLSJ3_MON")
 {
     field(DESC, "PLSJ3 Mon")
     field(SCAN, "Passive")
@@ -838,7 +838,7 @@ record(ai, "$(P)$(R):PLSJ3_MON")
 
 # Joint 4 encoder position monitor
 
-record(ai, "$(P)$(R):PLSJ4_MON")
+record(ai, "$(P):PLSJ4_MON")
 {
     field(DESC, "PLSJ4 Mon")
     field(SCAN, "Passive")
@@ -848,7 +848,7 @@ record(ai, "$(P)$(R):PLSJ4_MON")
 
 # Joint 5 encoder position monitor
 
-record(ai, "$(P)$(R):PLSJ5_MON")
+record(ai, "$(P):PLSJ5_MON")
 {
     field(DESC, "PLSJ5 Mon")
     field(SCAN, "Passive")
@@ -858,7 +858,7 @@ record(ai, "$(P)$(R):PLSJ5_MON")
 
 # Joint 6 encoder position monitor
 
-record(ai, "$(P)$(R):PLSJ6_MON")
+record(ai, "$(P):PLSJ6_MON")
 {
     field(DESC, "PLSJ6 Mon")
     field(SCAN, "Passive")
@@ -868,7 +868,7 @@ record(ai, "$(P)$(R):PLSJ6_MON")
 
 # Motor power status
 
-record(bi, "$(P)$(R):POWER_STATUS")
+record(bi, "$(P):POWER_STATUS")
 {
     field(DESC, "pwr status")
     field(SCAN, "Passive")
@@ -880,7 +880,7 @@ record(bi, "$(P)$(R):POWER_STATUS")
 
 # TeachOn status
 
-record(bi, "$(P)$(R):TEACHON_STATUS")
+record(bi, "$(P):TEACHON_STATUS")
 {
     field(DESC, "teach status")
     field(SCAN, "Passive")
@@ -892,7 +892,7 @@ record(bi, "$(P)$(R):TEACHON_STATUS")
 
 # Joint lock status
 
-record(bi, "$(P)$(R):SFREEJ1_STATUS")
+record(bi, "$(P):SFREEJ1_STATUS")
 {
     field(DESC, "Sfree status")
     field(SCAN, "Passive")
@@ -906,7 +906,7 @@ record(bi, "$(P)$(R):SFREEJ1_STATUS")
 
 # Joint lock status
 
-record(bi, "$(P)$(R):SFREEJ2_STATUS")
+record(bi, "$(P):SFREEJ2_STATUS")
 {
     field(DESC, "Sfree status")
     field(SCAN, "Passive")
@@ -918,7 +918,7 @@ record(bi, "$(P)$(R):SFREEJ2_STATUS")
 
 # Joint lock status
 
-record(bi, "$(P)$(R):SFREEJ3_STATUS")
+record(bi, "$(P):SFREEJ3_STATUS")
 {
     field(DESC, "Sfree status")
     field(SCAN, "Passive")
@@ -930,7 +930,7 @@ record(bi, "$(P)$(R):SFREEJ3_STATUS")
 
 # Joint lock status
 
-record(bi, "$(P)$(R):SFREEJ4_STATUS")
+record(bi, "$(P):SFREEJ4_STATUS")
 {
     field(DESC, "Sfree status")
     field(SCAN, "Passive")
@@ -942,7 +942,7 @@ record(bi, "$(P)$(R):SFREEJ4_STATUS")
 
 # Joint lock status
 
-record(bi, "$(P)$(R):SFREEJ5_STATUS")
+record(bi, "$(P):SFREEJ5_STATUS")
 {
     field(DESC, "Sfree status")
     field(SCAN, "Passive")
@@ -954,7 +954,7 @@ record(bi, "$(P)$(R):SFREEJ5_STATUS")
 
 # Joint lock status
 
-record(bi, "$(P)$(R):SFREEJ6_STATUS")
+record(bi, "$(P):SFREEJ6_STATUS")
 {
     field(DESC, "Sfree status")
     field(SCAN, "Passive")
@@ -966,7 +966,7 @@ record(bi, "$(P)$(R):SFREEJ6_STATUS")
 
 # brake status
 
-record(bi, "$(P)$(R):BRAKEJ1_STATUS")
+record(bi, "$(P):BRAKEJ1_STATUS")
 {
     field(DESC, "Brake status")
     field(SCAN, "Passive")
@@ -978,7 +978,7 @@ record(bi, "$(P)$(R):BRAKEJ1_STATUS")
 
 # brake status
 
-record(bi, "$(P)$(R):BRAKEJ2_STATUS")
+record(bi, "$(P):BRAKEJ2_STATUS")
 {
     field(DESC, "Brake status")
     field(SCAN, "Passive")
@@ -990,7 +990,7 @@ record(bi, "$(P)$(R):BRAKEJ2_STATUS")
 
 # brake status
 
-record(bi, "$(P)$(R):BRAKEJ3_STATUS")
+record(bi, "$(P):BRAKEJ3_STATUS")
 {
     field(DESC, "Brake status")
     field(SCAN, "Passive")
@@ -1002,7 +1002,7 @@ record(bi, "$(P)$(R):BRAKEJ3_STATUS")
 
 # brake status
 
-record(bi, "$(P)$(R):BRAKEJ4_STATUS")
+record(bi, "$(P):BRAKEJ4_STATUS")
 {
     field(DESC, "Brake status")
     field(SCAN, "Passive")
@@ -1014,7 +1014,7 @@ record(bi, "$(P)$(R):BRAKEJ4_STATUS")
 
 # brake status
 
-record(bi, "$(P)$(R):BRAKEJ5_STATUS")
+record(bi, "$(P):BRAKEJ5_STATUS")
 {
     field(DESC, "Brake status")
     field(SCAN, "Passive")
@@ -1026,7 +1026,7 @@ record(bi, "$(P)$(R):BRAKEJ5_STATUS")
 
 # brake status
 
-record(bi, "$(P)$(R):BRAKEJ6_STATUS")
+record(bi, "$(P):BRAKEJ6_STATUS")
 {
     field(DESC, "Brake status")
     field(SCAN, "Passive")
@@ -1039,7 +1039,7 @@ record(bi, "$(P)$(R):BRAKEJ6_STATUS")
 
 # Joint free cmd
 
-record(bo, "$(P)$(R):SFREEJ1_CMD")
+record(bo, "$(P):SFREEJ1_CMD")
 {
     field(DESC, "Sfree cmd")
     field(ZNAM, "free")
@@ -1050,7 +1050,7 @@ record(bo, "$(P)$(R):SFREEJ1_CMD")
 
 # Joint free cmd
 
-record(bo, "$(P)$(R):SFREEJ2_CMD")
+record(bo, "$(P):SFREEJ2_CMD")
 {
     field(DESC, "Sfree cmd")
     field(ZNAM, "free")
@@ -1061,7 +1061,7 @@ record(bo, "$(P)$(R):SFREEJ2_CMD")
 
 # Joint free cmd
 
-record(bo, "$(P)$(R):SFREEJ3_CMD")
+record(bo, "$(P):SFREEJ3_CMD")
 {
     field(DESC, "Sfree cmd")
     field(ZNAM, "free")
@@ -1072,7 +1072,7 @@ record(bo, "$(P)$(R):SFREEJ3_CMD")
 
 # Joint free cmd
 
-record(bo, "$(P)$(R):SFREEJ4_CMD")
+record(bo, "$(P):SFREEJ4_CMD")
 {
     field(DESC, "Sfree cmd")
     field(ZNAM, "free")
@@ -1083,7 +1083,7 @@ record(bo, "$(P)$(R):SFREEJ4_CMD")
 
 # Joint free cmd
 
-record(bo, "$(P)$(R):SFREEJ5_CMD")
+record(bo, "$(P):SFREEJ5_CMD")
 {
     field(DESC, "Sfree cmd")
     field(ZNAM, "free")
@@ -1094,7 +1094,7 @@ record(bo, "$(P)$(R):SFREEJ5_CMD")
 
 # Joint free cmd
 
-record(bo, "$(P)$(R):SFREEJ6_CMD")
+record(bo, "$(P):SFREEJ6_CMD")
 {
     field(DESC, "Sfree cmd")
     field(ZNAM, "free")
@@ -1105,7 +1105,7 @@ record(bo, "$(P)$(R):SFREEJ6_CMD")
 
 # Joint lock cmd
 
-record(bo, "$(P)$(R):SLOCKJ1_CMD")
+record(bo, "$(P):SLOCKJ1_CMD")
 {
     field(DESC, "Slock cmd")
     field(ZNAM, "lock")
@@ -1116,7 +1116,7 @@ record(bo, "$(P)$(R):SLOCKJ1_CMD")
 
 # Joint lock cmd
 
-record(bo, "$(P)$(R):SLOCKJ2_CMD")
+record(bo, "$(P):SLOCKJ2_CMD")
 {
     field(DESC, "Slock cmd")
     field(ZNAM, "lock")
@@ -1127,7 +1127,7 @@ record(bo, "$(P)$(R):SLOCKJ2_CMD")
 
 # Joint lock cmd
 
-record(bo, "$(P)$(R):SLOCKJ3_CMD")
+record(bo, "$(P):SLOCKJ3_CMD")
 {
     field(DESC, "Slock cmd")
     field(ZNAM, "lock")
@@ -1138,7 +1138,7 @@ record(bo, "$(P)$(R):SLOCKJ3_CMD")
 
 # Joint lock cmd
 
-record(bo, "$(P)$(R):SLOCKJ4_CMD")
+record(bo, "$(P):SLOCKJ4_CMD")
 {
     field(DESC, "Slock cmd")
     field(ZNAM, "lock")
@@ -1149,7 +1149,7 @@ record(bo, "$(P)$(R):SLOCKJ4_CMD")
 
 # Joint lock cmd
 
-record(bo, "$(P)$(R):SLOCKJ5_CMD")
+record(bo, "$(P):SLOCKJ5_CMD")
 {
     field(DESC, "Slock cmd")
     field(ZNAM, "lock")
@@ -1160,7 +1160,7 @@ record(bo, "$(P)$(R):SLOCKJ5_CMD")
 
 # Joint lock cmd
 
-record(bo, "$(P)$(R):SLOCKJ6_CMD")
+record(bo, "$(P):SLOCKJ6_CMD")
 {
     field(DESC, "Sfree cmd")
     field(ZNAM, "lock")
@@ -1171,7 +1171,7 @@ record(bo, "$(P)$(R):SLOCKJ6_CMD")
 
 # Brake cmd
 
-record(bo, "$(P)$(R):BRAKEJ1_CMD")
+record(bo, "$(P):BRAKEJ1_CMD")
 {
     field(DESC, "Brake cmd")
     field(ZNAM, "Off")
@@ -1182,7 +1182,7 @@ record(bo, "$(P)$(R):BRAKEJ1_CMD")
 
 # Brake cmd
 
-record(bo, "$(P)$(R):BRAKEJ2_CMD")
+record(bo, "$(P):BRAKEJ2_CMD")
 {
     field(DESC, "Brake cmd")
     field(ZNAM, "Off")
@@ -1193,7 +1193,7 @@ record(bo, "$(P)$(R):BRAKEJ2_CMD")
 
 # Brake cmd
 
-record(bo, "$(P)$(R):BRAKEJ3_CMD")
+record(bo, "$(P):BRAKEJ3_CMD")
 {
     field(DESC, "Brake cmd")
     field(ZNAM, "Off")
@@ -1204,7 +1204,7 @@ record(bo, "$(P)$(R):BRAKEJ3_CMD")
 
 # Brake cmd
 
-record(bo, "$(P)$(R):BRAKEJ4_CMD")
+record(bo, "$(P):BRAKEJ4_CMD")
 {
     field(DESC, "Brake cmd")
     field(ZNAM, "Off")
@@ -1215,7 +1215,7 @@ record(bo, "$(P)$(R):BRAKEJ4_CMD")
 
 # Brake cmd
 
-record(bo, "$(P)$(R):BRAKEJ5_CMD")
+record(bo, "$(P):BRAKEJ5_CMD")
 {
     field(DESC, "Brake cmd")
     field(ZNAM, "Off")
@@ -1226,7 +1226,7 @@ record(bo, "$(P)$(R):BRAKEJ5_CMD")
 
 # Brake cmd
 
-record(bo, "$(P)$(R):BRAKEJ6_CMD")
+record(bo, "$(P):BRAKEJ6_CMD")
 {
     field(DESC, "Brake cmd")
     field(ZNAM, "Off")
@@ -1237,7 +1237,7 @@ record(bo, "$(P)$(R):BRAKEJ6_CMD")
 
 # SavePoints cmd
 
-record(bo, "$(P)$(R):SAVEPTS_CMD")
+record(bo, "$(P):SAVEPTS_CMD")
 {
     field(DESC, "SavePoints cmd")
     field(ZNAM, "save")
@@ -1248,7 +1248,7 @@ record(bo, "$(P)$(R):SAVEPTS_CMD")
 
 # Force_Calibrate cmd
 
-record(bo, "$(P)$(R):FCAL_CMD")
+record(bo, "$(P):FCAL_CMD")
 {
     field(DESC, "Force_Calibrate cmd")
     field(ZNAM, "Calibrate")
@@ -1259,7 +1259,7 @@ record(bo, "$(P)$(R):FCAL_CMD")
 
 # Force_ClearTrigger cmd
 
-record(bo, "$(P)$(R):FCLRTRIG_CMD")
+record(bo, "$(P):FCLRTRIG_CMD")
 {
     field(DESC, "Force_ClearTrigger cmd")
     field(ZNAM, "Clear")
@@ -1270,7 +1270,7 @@ record(bo, "$(P)$(R):FCLRTRIG_CMD")
 
 # Cont cmd
 
-record(bo, "$(P)$(R):CONT_CMD")
+record(bo, "$(P):CONT_CMD")
 {
     field(DESC, "Cont cmd")
     field(ZNAM, "Continue")
@@ -1281,7 +1281,7 @@ record(bo, "$(P)$(R):CONT_CMD")
 
 # Reset cmd
 
-record(bo, "$(P)$(R):RESET_CMD")
+record(bo, "$(P):RESET_CMD")
 {
     field(DESC, "Reset cmd")
     field(ZNAM, "Reset")
@@ -1292,7 +1292,7 @@ record(bo, "$(P)$(R):RESET_CMD")
 
 # Pause cmd
 
-record(bo, "$(P)$(R):PAUSE_CMD")
+record(bo, "$(P):PAUSE_CMD")
 {
     field(DESC, "Pause cmd")
     field(ZNAM, "Pause")
@@ -1303,7 +1303,7 @@ record(bo, "$(P)$(R):PAUSE_CMD")
 
 # AbortMotion cmd
 
-record(bo, "$(P)$(R):ABORTMOTION_CMD")
+record(bo, "$(P):ABORTMOTION_CMD")
 {
     field(DESC, "Abortmotion cmd")
     field(ZNAM, "Abort motion")
@@ -1314,7 +1314,7 @@ record(bo, "$(P)$(R):ABORTMOTION_CMD")
 
 # Motor power cmd
 
-record(bo, "$(P)$(R):POWER_CMD")
+record(bo, "$(P):POWER_CMD")
 {
     field(DESC, "pwr cmd")
     field(ZNAM, "low")
@@ -1325,7 +1325,7 @@ record(bo, "$(P)$(R):POWER_CMD")
 
 # QuitAllTasks cmd
 
-record(bo, "$(P)$(R):QUITALL_CMD")
+record(bo, "$(P):QUITALL_CMD")
 {
     field(DESC, "Quit all tasks")
     field(ZNAM, "Quit All")
@@ -1336,7 +1336,7 @@ record(bo, "$(P)$(R):QUITALL_CMD")
 
 # SFREEALL cmd
 
-record(bo, "$(P)$(R):SFREEALL_CMD")
+record(bo, "$(P):SFREEALL_CMD")
 {
     field(DESC, "SFREE all")
     field(ZNAM, "All")
@@ -1347,7 +1347,7 @@ record(bo, "$(P)$(R):SFREEALL_CMD")
 
 # SLOCKALL cmd
 
-record(bo, "$(P)$(R):SLOCKALL_CMD")
+record(bo, "$(P):SLOCKALL_CMD")
 {
     field(DESC, "SLOCK all")
     field(ZNAM, "All")
@@ -1358,9 +1358,10 @@ record(bo, "$(P)$(R):SLOCKALL_CMD")
 
 # get robot model
 
-record(stringin, "$(P)$(R):MODEL_MON")
+record(stringin, "$(P):MODEL_MON")
 {
     field(DESC, "Mode mon")
+    field(VAL,  "MOCK-ROBOT")
     field(SCAN, "Passive")
 }
 
@@ -1368,7 +1369,7 @@ record(stringin, "$(P)$(R):MODEL_MON")
 
 # get controller time
 
-record(stringin, "$(P)$(R):TIME_MON")
+record(stringin, "$(P):TIME_MON")
 {
     field(DESC, "Time mon")
     field(SCAN, "Passive")
@@ -1378,7 +1379,7 @@ record(stringin, "$(P)$(R):TIME_MON")
 
 # get robot type
 
-record(mbbi, "$(P)$(R):TYPE_MON")
+record(mbbi, "$(P):TYPE_MON")
 {
     field(DESC, "robot type")
     field(SCAN, "Passive")
@@ -1398,7 +1399,7 @@ record(mbbi, "$(P)$(R):TYPE_MON")
 
 # get robot name
 
-record(stringin, "$(P)$(R):NAME_MON")
+record(stringin, "$(P):NAME_MON")
 {
     field(DESC, "Name mon")
     field(SCAN, "Passive")
@@ -1408,7 +1409,7 @@ record(stringin, "$(P)$(R):NAME_MON")
 
 # robot number monitor
 
-record(ai, "$(P)$(R):ROBOT_MON")
+record(ai, "$(P):ROBOT_MON")
 {
     field(DESC, "robot no. mon")
     field(SCAN, "Passive")
@@ -1418,7 +1419,7 @@ record(ai, "$(P)$(R):ROBOT_MON")
 
 # robot number cmd
 
-record(ao, "$(P)$(R):ROBOT_CMD")
+record(ao, "$(P):ROBOT_CMD")
 {
     field(DESC, "robot no. cmd")
     field(DRVL, "1")
@@ -1430,7 +1431,7 @@ record(ao, "$(P)$(R):ROBOT_CMD")
 
 # Quit a SPEL task.  No reply from these commands
 
-record(stringout, "$(P)$(R):QUIT_CMD")
+record(stringout, "$(P):QUIT_CMD")
 {
     field(DESC, "quit cmd")
 }
@@ -1439,7 +1440,7 @@ record(stringout, "$(P)$(R):QUIT_CMD")
 
 # Execute SPEL code.  No reply from these commands
 
-record(stringout, "$(P)$(R):GENERIC_CMD")
+record(stringout, "$(P):GENERIC_CMD")
 {
     field(DESC, "generic cmd")
 }
@@ -1448,13 +1449,13 @@ record(stringout, "$(P)$(R):GENERIC_CMD")
 
 # Execute SPEL code.  A floating point reply from these commands
 
-record(waveform, "$(P)$(R):GENERICFLOAT_CMD")
+record(waveform, "$(P):GENERICFLOAT_CMD")
 {
     field(DESC, "generic float cmd")
     field(NORD, "256")
     field(NELM, "256")
     field(FTVL, "CHAR")
-    field(FLNK, "$(P)$(R):GENERICFLOAT_MON")
+    field(FLNK, "$(P):GENERICFLOAT_MON")
 }
 
 
@@ -1462,9 +1463,9 @@ record(waveform, "$(P)$(R):GENERICFLOAT_CMD")
 
 # Generic SPEL command with float pointing response.
 
-record(ai, "$(P)$(R):GENERICFLOAT_MON")
+record(ai, "$(P):GENERICFLOAT_MON")
 {
-    # Updated by record(stringout, "$(P)$(R):GENERICFLOAT_CMD") query
+    # Updated by record(stringout, "$(P):GENERICFLOAT_CMD") query
     field(DESC, "gen float mon")
     field(MDEL, "-1")
     field(PREC, "3")
@@ -1474,22 +1475,22 @@ record(ai, "$(P)$(R):GENERICFLOAT_MON")
 
 # Execute SPEL code.  A string reply from these commands
 
-record(waveform, "$(P)$(R):GENERICSTR_CMD")
+record(waveform, "$(P):GENERICSTR_CMD")
 {
     field(DESC, "generic str cmd")
     field(NORD, "256")
     field(NELM, "256")
     field(FTVL, "CHAR")
-    field(FLNK, "$(P)$(R):GENERICSTR_MON")
+    field(FLNK, "$(P):GENERICSTR_MON")
 }
 
 ###########################################################################
 
 # Generic SPEL command with string response.
 
-record(waveform, "$(P)$(R):GENERICSTR_MON")
+record(waveform, "$(P):GENERICSTR_MON")
 {
-    # Updated by record(stringout, "$(P)$(R):GENERICSTR_CMD") query
+    # Updated by record(stringout, "$(P):GENERICSTR_CMD") query
     field(DESC, "generic str mon")
     field(MPST, "Always")
     field(APST, "Always")
@@ -1499,7 +1500,7 @@ record(waveform, "$(P)$(R):GENERICSTR_MON")
 
 # Set point number we wish to teach
 
-record(ao, "$(P)$(R):TEACHPOINT_CMD")
+record(ao, "$(P):TEACHPOINT_CMD")
 {
     field(DESC, "teach pt cmd")
     field(VAL,  "999")
@@ -1509,7 +1510,7 @@ record(ao, "$(P)$(R):TEACHPOINT_CMD")
 
 # Teach the point
 
-record(bo, "$(P)$(R):TEACH_CMD")
+record(bo, "$(P):TEACH_CMD")
 {
     field(DESC, "teach cmd")
     field(ZNAM, "Teach")
@@ -1520,7 +1521,7 @@ record(bo, "$(P)$(R):TEACH_CMD")
 
 # Delete the point
 
-record(bo, "$(P)$(R):PDEL_CMD")
+record(bo, "$(P):PDEL_CMD")
 {
     field(DESC, "pdel cmd")
     field(ZNAM, "Delete")
@@ -1532,7 +1533,7 @@ record(bo, "$(P)$(R):PDEL_CMD")
 # Set point number we wish to get point data from
 # Results show up in POINTX_MON, and so on below
 
-record(ao, "$(P)$(R):GETPOINT_CMD")
+record(ao, "$(P):GETPOINT_CMD")
 {
     field(DESC, "generic float cmd")
 }
@@ -1541,7 +1542,7 @@ record(ao, "$(P)$(R):GETPOINT_CMD")
 
 # Point query X coordinate
 
-record(ai, "$(P)$(R):POINTX_MON")
+record(ai, "$(P):POINTX_MON")
 {
     field(DESC, "PointX mon")
     field(SCAN, "Passive")
@@ -1552,7 +1553,7 @@ record(ai, "$(P)$(R):POINTX_MON")
 
 # Point query Y coordinate
 
-record(ai, "$(P)$(R):POINTY_MON")
+record(ai, "$(P):POINTY_MON")
 {
     field(DESC, "Pointy mon")
     field(SCAN, "Passive")
@@ -1563,7 +1564,7 @@ record(ai, "$(P)$(R):POINTY_MON")
 
 # Point query z coordinate
 
-record(ai, "$(P)$(R):POINTZ_MON")
+record(ai, "$(P):POINTZ_MON")
 {
     field(DESC, "Pointz mon")
     field(SCAN, "Passive")
@@ -1574,7 +1575,7 @@ record(ai, "$(P)$(R):POINTZ_MON")
 
 # Point query u coordinate
 
-record(ai, "$(P)$(R):POINTU_MON")
+record(ai, "$(P):POINTU_MON")
 {
     field(DESC, "Pointu mon")
     field(SCAN, "Passive")
@@ -1585,7 +1586,7 @@ record(ai, "$(P)$(R):POINTU_MON")
 
 # Point query v coordinate
 
-record(ai, "$(P)$(R):POINTV_MON")
+record(ai, "$(P):POINTV_MON")
 {
     field(DESC, "Pointv mon")
     field(SCAN, "Passive")
@@ -1596,7 +1597,7 @@ record(ai, "$(P)$(R):POINTV_MON")
 
 # Point query w coordinate
 
-record(ai, "$(P)$(R):POINTW_MON")
+record(ai, "$(P):POINTW_MON")
 {
     field(DESC, "Pointw mon")
     field(SCAN, "Passive")
@@ -1608,7 +1609,7 @@ record(ai, "$(P)$(R):POINTW_MON")
 # Query task status
 # Query the task status of task name in val field.
 
-record(stringout, "$(P)$(R):TASKSTATUS_CMD")
+record(stringout, "$(P):TASKSTATUS_CMD")
 {
     field(DESC, "TaskStatus cmd")
     field(VAL,  "task1")
@@ -1617,7 +1618,7 @@ record(stringout, "$(P)$(R):TASKSTATUS_CMD")
 
 ###########################################################################
 
-record(mbbi, "$(P)$(R):TASK_STATUS")
+record(mbbi, "$(P):TASK_STATUS")
 {
     field(DESC, "Task status")
     field(SCAN, "Passive")
@@ -1639,7 +1640,7 @@ record(mbbi, "$(P)$(R):TASK_STATUS")
 
 # Robot status read from Jinhu SPEL variable g_RobotStatus
 
-record(longin, "$(P)$(R):RSTATUS_MON")
+record(longin, "$(P):RSTATUS_MON")
 {
     field(DESC, "MX RobotStatus mon")
     field(SCAN, "Passive")
@@ -1649,16 +1650,39 @@ record(longin, "$(P)$(R):RSTATUS_MON")
 
 # Robot status written to Jinhu SPEL variable g_RobotStatus
 
-record(longout, "$(P)$(R):RSTATUS_CMD")
+record(longout, "$(P):RSTATUS_CMD")
 {
     field(DESC, "MX RobotStatus cmd")
 }
 
 ###########################################################################
 
+# Clear robot status
+
+record(bo, "$(P):RESETSTATUS_CMD")
+{
+    field(DESC, "MX RobotStatus set")
+    field(DTYP, "stream")
+    field(ZNAM, "Reset")
+    field(ONAM, "Reset")
+}
+
+###########################################################################
+
+# Current operation read from SPEL variable g_CurrentOperation$
+
+record(stringout, "$(P):COP_MON")
+{
+    field(DESC, "current operation")
+    field(VAL, "idle")
+    field(SCAN, "Passive")
+}
+
+###########################################################################
+
 # Robot FlagAbort read from Jinhu SPEL variable g_FlagAbort
 
-record(bi, "$(P)$(R):FABORT_STATUS")
+record(bi, "$(P):FABORT_STATUS")
 {
     field(DESC, "flag abort status")
     field(ZNAM, "Ok")
@@ -1670,7 +1694,7 @@ record(bi, "$(P)$(R):FABORT_STATUS")
 
 # Robot FlagAbort written to Jinhu SPEL variable g_FlagAbort
 
-record(bo, "$(P)$(R):FABORT_CMD")
+record(bo, "$(P):FABORT_CMD")
 {
     field(DESC, "flag abort cmd")
     field(ZNAM, "Ok")
@@ -1681,7 +1705,7 @@ record(bo, "$(P)$(R):FABORT_CMD")
 
 # Robot runResult read from Jinhu SPEL variable g_RunResult$
 
-record (waveform, "$(P)$(R):RRESULT_MON")
+record (waveform, "$(P):RRESULT_MON")
 {
   field(SCAN, "Passive")
   field(NELM, "256")
@@ -1692,7 +1716,7 @@ record (waveform, "$(P)$(R):RRESULT_MON")
 
 # Robot closest point
 
-record (ai, "$(P)$(R):CLOSESTP_MON")
+record (ai, "$(P):CLOSESTP_MON")
 {
   field(SCAN, "Passive")
 }
@@ -1701,7 +1725,7 @@ record (ai, "$(P)$(R):CLOSESTP_MON")
 
 # Robot runArgs read from Jinhu SPEL variable g_RunArgs$
 
-record(waveform, "$(P)$(R):RA_MON")
+record(waveform, "$(P):RA_MON")
 {
     field(DESC, "runArgs mon")
     field(NELM, "256")
@@ -1714,7 +1738,7 @@ record(waveform, "$(P)$(R):RA_MON")
 # Robot runArgs written to Jinhu SPEL variable g_RunArgs$
 # This record is an output
 
-record(waveform, "$(P)$(R):RA_CMD")
+record(waveform, "$(P):RA_CMD")
 {
     field(DESC, "runArgs cmd")
     field(NELM, "256")

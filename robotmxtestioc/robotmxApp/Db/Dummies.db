@@ -1,0 +1,6 @@
+record(longout, "$(P):DUMMY")
+{
+    field(DESC, "Dummy PV")
+    field(SCAN, "Passive")
+    field(VAL, 0)
+}
